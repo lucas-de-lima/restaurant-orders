@@ -34,8 +34,10 @@ class MenuBuilder:
                 'restrictions': dish.get_restrictions()
             }
             for dish in self.menu_data.dishes
-            if restriction is None or restriction not in dish.get_restrictions()
-            if all(self.inventory.inventory.get(ingredient, 0) > 0 for ingredient in dish.get_ingredients())
+            if (restriction is None or
+                restriction not in dish.get_restrictions()) and
+            all(self.inventory.inventory.get(ingredient, 0) > 0
+                for ingredient in dish.get_ingredients())
         ]
 
         return menu

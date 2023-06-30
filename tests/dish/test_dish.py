@@ -21,7 +21,7 @@ def test_dish():
 
     assert hash(feijoada) != hash(mocotó)
     assert hash(feijoada) == hash(Dish("Feijoada", 45.0))
-    assert feijoada == Dish("Feijoada", 45.0)   
+    assert feijoada == Dish("Feijoada", 45.0)
 
     assert str(mocotó) == "Dish('Mocotó', R$30.00)"
     assert str(feijoada) == "Dish('Feijoada', R$45.00)"
@@ -31,7 +31,7 @@ def test_dish():
 
     with pytest.raises(ValueError):
         Dish("Mocotó", -1.0)
-    
+
     ingredient_mocoto = Ingredient("carne")
     mocotó.add_ingredient_dependency(ingredient_mocoto, 1)
 
@@ -40,7 +40,7 @@ def test_dish():
 
     with pytest.raises(TypeError):
         Dish("Feijoada", "preço estranho")
-    
+
     with pytest.raises(ValueError):
         Dish("Feijoada", -1.0)
 
